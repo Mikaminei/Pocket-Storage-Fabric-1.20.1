@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "pocket-storage",
+	"version": "${version}",
+	"name": "Pocket Storage",
+	"description": "Wireless access to chests, pocket enchanters and more!",
+	"authors": [
+		"Mikaminei"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/pocket-storage/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"de.mikaminei.pocketstorage.PocketStorage"
+		],
+		"client": [
+			"de.mikaminei.pocketstorage.PocketStorageClient"
+		],
+		"fabric-datagen": [
+			"de.mikaminei.pocketstorage.PocketStorageDataGenerator"
+		]
+	},
+	"mixins": [
+		"pocket-storage.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.12",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
