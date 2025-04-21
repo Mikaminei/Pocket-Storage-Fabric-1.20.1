@@ -3,6 +3,7 @@
 	"package": "de.mikaminei.pocketstorage.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"ServerPlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

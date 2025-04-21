@@ -1,0 +1,10 @@
+{
+  "item.pocket-storage.chest_link": "Chest Link",
+  "item.pocket-storage.chest_link.link_created": "Link established to: X: %d, Y: %d, Z: %d",
+  "item.pocket-storage.chest_link.not_linkable": "You cannot link to this block!",
+  "item.pocket-storage.chest_link.chest_not_existing": "The linked chest doesn't exist!",
+  "item.pocket-storage.chest_link.not_linked": "You have to establish a link first!",
+  "item.pocket-storage.chest_link.tooltip.not_linked.line1": "Not linked.",
+  "item.pocket-storage.chest_link.tooltip.not_linked.line2": "Shift + Right Click to link.",
+  "item.pocket-storage.chest_link.tooltip.linked_to": "Linked to: X: %d, Y: %d, Z: %d"
+}
