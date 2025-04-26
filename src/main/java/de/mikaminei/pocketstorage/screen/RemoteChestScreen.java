@@ -8,9 +8,9 @@ import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.text.Text;
 
 @Environment(EnvType.CLIENT)
-public class NoDistanceCheckChestScreen extends GenericContainerScreen {
+public class RemoteChestScreen extends GenericContainerScreen {
 
-    public NoDistanceCheckChestScreen(GenericContainerScreenHandler handler, PlayerInventory inventory, Text title) {
+    public RemoteChestScreen(GenericContainerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 }

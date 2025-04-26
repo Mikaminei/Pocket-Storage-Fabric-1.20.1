@@ -1,4 +1,4 @@
-package de.mikaminei.pocketstorage.util;
+package de.mikaminei.pocketstorage.nbt;
 
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.BlockPos;

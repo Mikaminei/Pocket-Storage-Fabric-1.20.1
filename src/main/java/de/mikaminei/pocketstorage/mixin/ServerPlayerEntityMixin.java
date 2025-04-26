@@ -1,8 +1,8 @@
 package de.mikaminei.pocketstorage.mixin;
 
-import de.mikaminei.pocketstorage.util.ChunkLoadingHelper;
 import de.mikaminei.pocketstorage.util.RemoteAccessData;
 import de.mikaminei.pocketstorage.util.RemoteAccessManager;
+import de.mikaminei.pocketstorage.world.ChunkLoadingHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,7 @@ public class ServerPlayerEntityMixin {
         RemoteAccessData accessData = RemoteAccessManager.removeAccess(player.getUuid());
 
         if (accessData != null) {
-            ChunkLoadingHelper.earlyRemoveTicket(player.getServerWorld(), accessData.pos());
+            ChunkLoadingHelper.unrequestChunkLoad(player.getServerWorld(), accessData.pos());
         }
     }
 }

@@ -1,13 +1,12 @@
 package de.mikaminei.pocketstorage.util;
 
 import de.mikaminei.pocketstorage.PocketStorage;
-import de.mikaminei.pocketstorage.screen.NoDistanceCheckScreenHandler;
+import de.mikaminei.pocketstorage.screen.RemoteChestScreenHandler;
+import de.mikaminei.pocketstorage.world.ChunkLoadingHelper;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import java.util.Map;
 import java.util.UUID;
@@ -15,7 +14,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class RemoteAccessManager implements ServerTickEvents.EndTick {
 
-    private static final Logger LOGGER = PocketStorage.LOGGER;
     private static final int CHECK_INTERVAL = 10 * 20;
 
     private static final Map<UUID, RemoteAccessData> remoteAccessMap = new ConcurrentHashMap<>();
@@ -48,8 +46,8 @@ public class RemoteAccessManager implements ServerTickEvents.EndTick {
 
             if (accessData == null) return;
 
-            if (player.currentScreenHandler instanceof NoDistanceCheckScreenHandler) {
-                ChunkLoadingHelper.addTicket(server.getWorld(accessData.worldKey()), accessData.pos());
+            if (player.currentScreenHandler instanceof RemoteChestScreenHandler) {
+                ChunkLoadingHelper.requestChunkLoad(server.getWorld(accessData.dimensionKey()), accessData.pos());
             } else {
                 removeAccess(playerUuid);
             }
@@ -57,7 +55,7 @@ public class RemoteAccessManager implements ServerTickEvents.EndTick {
     }
 
     public static void register() {
-        LOGGER.info("Registering RemoteAccessTicker");
+        PocketStorage.LOGGER.info("Registering RemoteAccessTicker");
 
         ServerTickEvents.END_SERVER_TICK.register(new RemoteAccessManager());
     }

@@ -1,7 +1,7 @@
 package de.mikaminei.pocketstorage;
 
 import de.mikaminei.pocketstorage.screen.ModScreenHandlers;
-import de.mikaminei.pocketstorage.screen.NoDistanceCheckChestScreen;
+import de.mikaminei.pocketstorage.screen.RemoteChestScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -19,9 +19,6 @@ public class PocketStorageClient implements ClientModInitializer {
 
         LOGGER.debug("Registering Mod Screen Associations for " + PocketStorage.MOD_ID);
 
-        HandledScreens.register(
-                ModScreenHandlers.NO_DISTANCE_CHECK_CHEST_SCREEN_HANDLER_TYPE,
-                NoDistanceCheckChestScreen::new
-        );
+        HandledScreens.register(ModScreenHandlers.REMOTE_CHEST_SCREEN_HANDLER_TYPE, RemoteChestScreen::new);
     }
 }

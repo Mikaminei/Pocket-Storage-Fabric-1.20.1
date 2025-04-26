@@ -2,9 +2,9 @@ package de.mikaminei.pocketstorage;
 
 import de.mikaminei.pocketstorage.item.ModItems;
 import de.mikaminei.pocketstorage.screen.ModScreenHandlers;
-import de.mikaminei.pocketstorage.util.ChunkLoadingHelper;
 import de.mikaminei.pocketstorage.util.RemoteAccessData;
 import de.mikaminei.pocketstorage.util.RemoteAccessManager;
+import de.mikaminei.pocketstorage.world.ChunkLoadingHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -32,7 +32,7 @@ public class PocketStorage implements ModInitializer {
 			RemoteAccessData accessData = RemoteAccessManager.removeAccess(playerUuid);
 
 			if (accessData != null) {
-				ChunkLoadingHelper.earlyRemoveTicket(player.getServerWorld(), accessData.pos());
+				ChunkLoadingHelper.unrequestChunkLoad(player.getServerWorld(), accessData.pos());
 			}
 		});
 	}
